@@ -8,12 +8,14 @@ phases:
       - yum -y install python3 
       - yum -y install python-pip
       - yum -y install python3-pip
+      - yum -y install trufflehog
+      - pip install truffleHog
   pre_build:
     commands: 
       - echo Project is going to be started
       - echo Testing git secrets
       - docker pull gesellix/trufflehog
-      - docker run gesellix/trufflehog --json https://github.com/tahirjaved1/awscicd.git > trufflehog
+      - docker run gesellix/trufflehog --json --regex https://github.com/tahirjaved1/awscicd.git > trufflehog
       - cat trufflehog
       # Adding Source Code Analysis COmposition#
       #- wget https://github.com/tahirjaved1/awscicd/blob/master/owasp-dependency-check.sh
