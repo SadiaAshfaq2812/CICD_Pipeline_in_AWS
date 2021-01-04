@@ -8,7 +8,6 @@ phases:
       - yum -y install python3 
       - yum -y install python-pip
       - yum -y install python3-pip
-      - yum -y install trufflehog
       - pip install truffleHog
   pre_build:
     commands: 
