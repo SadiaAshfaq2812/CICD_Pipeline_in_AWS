@@ -12,7 +12,7 @@ phases:
     commands: 
       - echo Project is going to be started for AWS
       - echo Testing git secrets
-      - docker run gesellix/trufflehog --json https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git > trufflehog
+      - docker run gesellix/trufflehog --json https://github.com/tahirjaved1/awscicd.git > trufflehog
       - cat trufflehog
       # Adding Source Code Analysis COmposition#
       #- wget https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS/blob/master/owasp-dependency-check.sh
