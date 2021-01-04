@@ -12,7 +12,7 @@ phases:
     commands: 
       - echo Project is going to be started for AWS.
       - echo Testing git secrets
-      - docker pull gesellix/trufflehog
+      - sudo docker pull gesellix/trufflehog
       - docker run gesellix/trufflehog --json https://github.com/tahirjaved1/awscicd.git > trufflehog
       - cat trufflehog
       # Adding Source Code Analysis COmposition#
