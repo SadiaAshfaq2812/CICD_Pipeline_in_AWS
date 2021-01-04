@@ -12,17 +12,17 @@ phases:
     commands: 
       - echo Project is going to be started
       - echo Testing git secrets
-      - sudo docker run gesellix/trufflehog --json https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git > trufflehog
+      - docker run gesellix/trufflehog --json https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git > trufflehog
       - cat trufflehog
       # Adding Source Code Analysis COmposition#
       #- wget https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS/blob/master/owasp-dependency-check.sh
       - echo Doing Source Code Analysis
       #- chmod +x /home/ec2-user/owasp-dependency-check.sh
       #- testing 
-      # - wget https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS/master/source.sh
+      # - wget https://raw.githubusercontent.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS/master/source.sh
       # - chmod +x source.sh
       # - bash source.sh
-      # - sudo docker pull owasp/dependency-check
+      # - docker pull owasp/dependency-check
       # - DC_VERSION="latest"
       # - DC_DIRECTORY=$HOME/OWASP-Dependency-Check
       # - DC_PROJECT="dependency-check scan:$(pwd)"
@@ -31,9 +31,9 @@ phases:
       # - mkdir -p "$DATA_DIRECTORY"
       # - mkdir -p "$CACHE_DIRECTORY"
       # - docker run owasp/dependency-check --rm -e user=$USER -u $(id -u ${USER}):$(id -g ${USER}) --volume $(pwd):/src:z --volume "$DATA_DIRECTORY":/usr share/dependency-check/data:z --volume $(pwd)/odc-reports:/report:z owasp/dependency-check --scan /src --format "ALL" --project "$DC_PROJECT" --out /report
-      # - rm Vulny-Code-Static-Analysis/ || true
-      # - git clone https://github.com/swisskyrepo/Vulny-Code-Static-Analysis
-      # - cd Vulny-Code-Static-Analysis/
+      - rm Vulny-Code-Static-Analysis/ || true
+      - git clone https://github.com/swisskyrepo/Vulny-Code-Static-Analysis
+      - cd Vulny-Code-Static-Analysis/
       # - sudo chmod +x index.py
       # - sudo chmod +x detection.py
       # - sudo chmod + functions.py
