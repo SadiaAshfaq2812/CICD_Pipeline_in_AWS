@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - echo testing
       - yum -y update
       - yum -y install python
       - yum -y install python3 
