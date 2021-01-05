@@ -8,14 +8,15 @@ phases:
       - yum -y install python3 
       - yum -y install python-pip
       - yum -y install python3-pip
+      - yum -y install git-secrets
       #- pip install truffleHog
   pre_build:
     commands: 
-      - echo Project is going to be started for AWS.
-      - echo Testing git secrets
-      #- docker pull gesellix/trufflehog
-      - docker run gesellix/trufflehog --json --regex https://github.com/tahirjaved1/awscicd.git > trufflehog
-      - cat trufflehog
+      # - echo Project is going to be started for AWS.
+      # - echo Testing git secrets
+      # #- docker pull gesellix/trufflehog
+      # - docker run gesellix/trufflehog --json --regex https://github.com/tahirjaved1/awscicd.git > trufflehog
+      # - cat trufflehog
       # Adding Source Code Analysis COmposition#
       #- wget https://github.com/tahirjaved1/awscicd/blob/master/owasp-dependency-check.sh
       - echo Doing Source Code Analysis
@@ -24,15 +25,15 @@ phases:
       # - wget https://raw.githubusercontent.com/tahirjaved1/awscicd/master/source.sh
       # - chmod +x source.sh
       # - bash source.sh
-      # - docker pull owasp/dependency-check
-      # - DC_VERSION="latest"
-      # - DC_DIRECTORY=$HOME/OWASP-Dependency-Check
-      # - DC_PROJECT="dependency-check scan:$(pwd)"
-      # - DATA_DIRECTORY="$DC_DIRECTORY/data"
-      # - CACHE_DIRECTORY="$DC_DIRECTORY/data/cache"
-      # - mkdir -p "$DATA_DIRECTORY"
-      # - mkdir -p "$CACHE_DIRECTORY"
-      # - docker run owasp/dependency-check --rm -e user=$USER -u $(id -u ${USER}):$(id -g ${USER}) --volume $(pwd):/src:z --volume "$DATA_DIRECTORY":/usr share/dependency-check/data:z --volume $(pwd)/odc-reports:/report:z owasp/dependency-check --scan /src --format "ALL" --project "$DC_PROJECT" --out /report
+      - docker pull owasp/dependency-check
+      - DC_VERSION="latest"
+      - DC_DIRECTORY=$HOME/OWASP-Dependency-Check
+      - DC_PROJECT="dependency-check scan:$(pwd)"
+      - DATA_DIRECTORY="$DC_DIRECTORY/data"
+      - CACHE_DIRECTORY="$DC_DIRECTORY/data/cache"
+      - mkdir -p "$DATA_DIRECTORY"
+      - mkdir -p "$CACHE_DIRECTORY"
+      - docker run owasp/dependency-check --rm -e user=$USER -u $(id -u ${USER}):$(id -g ${USER}) --volume $(pwd):/src:z --volume "$DATA_DIRECTORY":/usr share/dependency-check/data:z --volume $(pwd)/odc-reports:/report:z owasp/dependency-check --scan /src --format "ALL" --project "$DC_PROJECT" --out /report
       #- rm Vulny-Code-Static-Analysis/ || true
       #- git clone https://github.com/swisskyrepo/Vulny-Code-Static-Analysis
       #- cd Vulny-Code-Static-Analysis/
