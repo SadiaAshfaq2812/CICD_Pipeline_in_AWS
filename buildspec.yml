@@ -8,7 +8,7 @@ phases:
       - yum -y install python3 
       - yum -y install python-pip
       - yum -y install python3-pip
-      - pip install truffleHog
+      #- pip install truffleHog
   pre_build:
     commands: 
       - echo Project is going to be started
