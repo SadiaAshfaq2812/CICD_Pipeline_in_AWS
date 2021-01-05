@@ -22,7 +22,7 @@ phases:
       # - cat trufflehog
       # - docker run banditcpp/build-environments
       - docker run banditcpp/build-environments:latest https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
-      # Adding Source Code Analysis COmposition#
+      # Adding Source Code Analysis COmposition.#
       #- wget https://github.com/tahirjaved1/awscicd/blob/master/owasp-dependency-check.sh
       - echo Doing Source Code Analysis
       #- chmod +x /home/ec2-user/owasp-dependency-check.sh
