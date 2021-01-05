@@ -4,6 +4,7 @@ phases:
   install:
     commands:
       - echo testing
+      - echo ok
       - yum -y update
       - yum -y install python
       - yum -y install python3 
