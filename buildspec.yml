@@ -28,7 +28,7 @@ phases:
       #- docker pull openjdk
       #- yum repolist all
       #- yum-config-manager --enable rhel-7-server-optional-rpms
-      - yum install -y java-11-openjdk-devel
+      #- yum install java-1.8.0-openjdk-devel
       - java -version
       - yum install -y jq
       - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
