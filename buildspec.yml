@@ -3,11 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum -y update
-      - yum -y install python
-      - yum -y install python3 
-      - yum -y install python-pip
-      - yum -y install python3-pip
+      #- yum -y update
+      #- yum -y install python
+      #- yum -y install python3 
+      #- yum -y install python-pip
+      #- yum -y install python3-pip
       - pip install bandit
       - pip3 install bandit
       - pip install bandit-aws
@@ -26,8 +26,8 @@ phases:
       # - docker run banditcpp/build-environments:latest https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
       # - docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:5.1
       - docker pull openjdk
-      - apt-get update
-      - apt-get install -y jq
+      - yum update
+      - yum install -y jq
       - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
       - tar xzf apache-maven-3.5.4-bin.tar.gz
       - ln -s apache-maven-3.5.4 maven
