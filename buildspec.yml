@@ -3,11 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum -y update
-      - yum -y install python
-      - yum -y install python3 
-      - yum -y install python-pip
-      - yum -y install python3-pip
+      # - yum -y update
+      # - yum -y install python
+      # - yum -y install python3 
+      # - yum -y install python-pip
+      # - yum -y install python3-pip
       - pip install bandit
       - pip3 install bandit
       - pip install bandit-aws
