@@ -11,7 +11,7 @@ phases:
       - pip install bandit
       - pip3 install bandit
       - pip install bandit-aws
-      - sudo yum install scap-workbench
+      - yum -y install scap-workbench
     # runtime-versions:
       # - java: openjdk8
       # - yum -y install git-secrets
