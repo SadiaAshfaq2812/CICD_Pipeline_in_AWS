@@ -28,15 +28,15 @@ phases:
       # - docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:5.1
       - docker pull openscap/openscap
       - docker run --rm -v /:/mnt/root -v $(pwd):/mnt/results openscap/openscap:f27-1 oscap-chroot /mnt/root xccdf eval --report /mnt/results/results.html --profile common /usr/share/xml/scap/ssg/content/ssg-fedora-ds.xml
-      - docker pull openjdk
-      - apt-get update
-      - apt-get install -y jq
-      - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
-      - tar xzf apache-maven-3.5.4-bin.tar.gz
-      - ln -s apache-maven-3.5.4 maven
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
-      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
+      # - docker pull openjdk
+      # - apt-get update
+      # - apt-get install -y jq
+      # - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+      # - tar xzf apache-maven-3.5.4-bin.tar.gz
+      # - ln -s apache-maven-3.5.4 maven
+      # - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      # - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      # - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
       # Adding Source Code Analysis COmposition.#
       #- wget https://github.com/tahirjaved1/awscicd/blob/master/owasp-dependency-check.sh
       - echo Doing Source Code Analysis
