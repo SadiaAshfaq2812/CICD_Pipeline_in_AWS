@@ -11,6 +11,8 @@ phases:
       - pip install bandit
       - pip3 install bandit
       - pip install bandit-aws
+    runtime-versions:
+      java: openjdk8
       # - yum -y install git-secrets
       #- pip install truffleHog
   pre_build:
@@ -22,7 +24,15 @@ phases:
       # - cat trufflehog
       # - docker run banditcpp/build-environments
       # - docker run banditcpp/build-environments:latest https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
-      - docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:5.1
+      # - docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube:5.1
+      - apt-get update
+      - apt-get install -y jq
+      - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+      - tar xzf apache-maven-3.5.4-bin.tar.gz
+      - ln -s apache-maven-3.5.4 maven
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
       # Adding Source Code Analysis COmposition.#
       #- wget https://github.com/tahirjaved1/awscicd/blob/master/owasp-dependency-check.sh
       - echo Doing Source Code Analysis
@@ -50,6 +60,12 @@ phases:
       #- python3 index.py -h
   build:
     commands:
+      - mvn test     
+      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+      - cat result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
       - echo Entered the build phase...
       - echo Build started on `date`
 artifacts:
