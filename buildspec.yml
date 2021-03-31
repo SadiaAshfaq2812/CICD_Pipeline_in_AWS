@@ -24,7 +24,7 @@ phases:
       # - echo Testing git secrets
       # - trufflehog commands
       #- docker pull gesellix/trufflehog
-      - trufflehog --json --regex https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git > trufflehog
+      - trufflehog --json --regex https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
       # - cat trufflehog
       # - docker run banditcpp/build-environments
       # - docker run banditcpp/build-environments:latest https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
