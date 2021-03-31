@@ -18,6 +18,7 @@ phases:
       #- pip install truffleHog
   pre_build:
     commands: 
+      # comment added
       # - echo Project is going to be started for AWS.
       # - echo Testing git secrets
       # - trufflehog commands
