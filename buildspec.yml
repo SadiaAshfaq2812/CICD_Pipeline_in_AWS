@@ -10,21 +10,20 @@ phases:
       - yum -y install python3-pip
       - pip install bandit
       - pip3 install bandit
-      - pip3 install trufflehog
       - pip install bandit-aws
       - yum -y install scap-workbench
     # runtime-versions:
       # - java: openjdk8
       # - yum -y install git-secrets
-      #- pip install truffleHog
+      - pip install truffleHog
   pre_build:
     commands: 
       # comment added
       # - echo Project is going to be started for AWS.
       # - echo Testing git secrets
       # - trufflehog commands
-      #- docker pull gesellix/trufflehog
-      - trufflehog --json --regex https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
+      - docker pull gesellix/trufflehog
+      - docker run gesellix/trufflehog --json --regex https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git > trufflehog
       # - cat trufflehog
       # - docker run banditcpp/build-environments
       # - docker run banditcpp/build-environments:latest https://github.com/SadiaAshfaq2812/CICD_Pipeline_in_AWS.git
