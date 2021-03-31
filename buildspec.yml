@@ -10,6 +10,7 @@ phases:
       - yum -y install python3-pip
       - pip install bandit
       - pip3 install bandit
+      - pip3 install trufflehog
       - pip install bandit-aws
       - yum -y install scap-workbench
     # runtime-versions:
