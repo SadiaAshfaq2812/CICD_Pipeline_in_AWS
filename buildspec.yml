@@ -18,7 +18,7 @@ phases:
       #- pip install truffleHog
   pre_build:
     commands: 
-      # code commented
+      # code comment
       # - echo Project is going to be started for AWS.
       # - echo Testing git secrets
       - docker pull gesellix/trufflehog
@@ -73,6 +73,6 @@ phases:
       # - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
       - echo Entered the build phase...
       - echo Build started on `date`
-# artifacts:
-#   files:
-#     - '**/*'
+artifacts:
+  files:
+    - '**/*'
