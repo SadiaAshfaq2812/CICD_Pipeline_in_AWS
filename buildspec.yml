@@ -18,7 +18,7 @@ phases:
       #- pip install truffleHog
   pre_build:
     commands: 
-      # code comment
+      # code commented
       # - echo Project is going to be started for AWS.
       # - echo Testing git secrets
       - docker pull gesellix/trufflehog
