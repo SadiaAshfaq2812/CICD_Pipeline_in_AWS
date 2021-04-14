@@ -75,7 +75,7 @@ phases:
       - echo Build started on `date`
       # - Make directiory
       - mkdir test-directory
-deploy:a
+deploy:
     commands:
     # - Make directiory
     - mkdir code-deploy-directory
